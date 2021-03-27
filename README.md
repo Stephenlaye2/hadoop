@@ -24,10 +24,14 @@
 4. cd into the cloned repository and execute the bash command
    <pre><code>cd Hadoop/
    sudo bash hadoop_install.sh</code></pre>
-   *Wait for the install to complete. Sometimes it takes a littlle longer.*
+   *Wait for the installation to complete. Sometimes it takes a little longer.*
 5. Test you installation
    <pre><code>jps</code></pre>
-   *If you get <code>jps</code> back, then congratulations!*
+   If you get <code>Jps</code> back, then congratulations!
+   If not, source your .bash_profile and .bashrc files respectively:
+   <pre><code>
+   source ~/.bash_profile
+   source ~/.bashrc</code></pre>
 
 ### 3. Install Hive
 1. In your terminal, paste the below code:
