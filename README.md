@@ -1,9 +1,9 @@
 ****
 
-###Java, Hadoop, Kafka, Spark Installation Instructions
+### Java, Hadoop, Kafka, Spark Installation Instructions
 ---
 
-##1. Oracle Virtualbox (optional)
+### 1. Oracle Virtualbox (optional)
 1. Visit the link below and choose your right OS version to download:
 [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
 
@@ -12,7 +12,7 @@
 3. Download and Install Ubuntu 18
   [Click here to download](http://old-releases.ubuntu.com/releases/18.04.4/ubuntu-18.04-desktop-amd64.iso)
 
-##2. Install Java, Hadoop, Kafka, Spark
+### 2. Install Java, Hadoop, Kafka, Spark
 1. Update your packages
    <pre><code>sudo apt-get update</code>
 2. Install Git
@@ -29,7 +29,7 @@
    <pre><code>jps</code></pre>
    *If you get <code>jps</code> back, then congratulations!*
 
-##3. Install Hive
+### 3. Install Hive
 1. In your terminal, paste the below code:
    <pre><code>cd ~/opt
    sudo wget http://archive.apache.org/dist/hive/hive-2.3.5/apache-hive-2.3.5-bin.tar.gz</code></pre>
