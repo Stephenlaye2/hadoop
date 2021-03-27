@@ -25,7 +25,7 @@
    
 4. cd into the cloned repository and execute the bash command
    <pre><code>cd Hadoop/
-   sudo bash hadoop_install.sh</code></pre>
+   sudo bash install.sh</code></pre>
    *Wait for the installation to complete. Sometimes it takes a little longer.*
 5. Test you installation:
    <pre><code>jps</code></pre>
