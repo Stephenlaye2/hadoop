@@ -23,6 +23,6 @@ bash ./scpt/_spark.sh
 cd
 
 # Source .bach_profile in .bachrc
-source .bash_profile
-echo 'source .bash_profile' >> .bashrc
-source .barchrc
+echo 'source ~/.bash_profile' >> .bashrc
+source ~/.bash_profile
+source ~/.barchrc

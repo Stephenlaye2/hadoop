@@ -7,10 +7,12 @@
 1. Visit the link below and choose your right OS version to download:
 [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
 
-2. Install based on your OS. If you are using Ubuntu, I recommend you download and install from the Ubuntu Software Center.
+2. Install. Follow the instructions based on your OS. If you are using Ubuntu, I recommend you download and install from the Ubuntu Software Center.
 
-3. Download and Install Ubuntu 18
+3. Download the Ubuntu OS version 18.
   [Click here to download](http://old-releases.ubuntu.com/releases/18.04.4/ubuntu-18.04-desktop-amd64.iso)
+4. Create a new VM in your Oracle Virtualbox and install the Ubuntu 18. Follow the instructions.
+5. (Optional) After the installation, clone the newly install VM.
 
 ### 2. Install Java, Hadoop, Kafka, Spark
 1. Update your packages
@@ -29,8 +31,7 @@
    <pre><code>jps</code></pre>
    If you get <code>Jps</code> back, then congratulations!
    If not, source your .bash_profile and .bashrc files respectively:
-   <pre><code>
-   source ~/.bash_profile
+   <pre><code>source ~/.bash_profile
    source ~/.bashrc</code></pre>
 
 ### 3. Install Hive
@@ -50,8 +51,10 @@
 5.  Give it a quick test with:
     <pre><code>hive --version</code></pre>
     *You should get the version of hive back*
-6.  Next, we need to create some directories in HDFS. But before that, let's start our hadoop cluster. If you have yours started already, then skip this step:
+6.  Next, we need to create some directories in HDFS. But before that, let's start our hadoop cluster. If you have yours started already, skip this step:
     <pre><code>start-all.sh</code></pre>
+    To verfiy if your cluster is running, run the following command:
+    <pre><code>jps</code></pre>
     If all goes well, you should see the below (the order doesn't matter):
     <pre><i>NameNode
     DataNode

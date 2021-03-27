@@ -22,7 +22,7 @@ tar -zxf kafka_2.11-2.3.1.tgz
 sudo rm kafka_2.11-2.3.1.tgz
 
 # Rename app folder
-sudo mv kafka_2.11-2.3.1.tgz/ kafka_2.3.1
+sudo mv kafka_2.11-2.3.1/ kafka_2.3.1
 
 # Assign all admin rights to folders/files
 cd
@@ -38,8 +38,9 @@ export PATH=$PATH:$KAFKA_HOME/bin
 
 ' >> ~/.bash_profile
 
-source .bash_profile
+source ~/.bash_profile
 
 echo '
 KAFKA Installation Successful !!!
+
 '
