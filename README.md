@@ -9,17 +9,17 @@
 
 2. Install. Follow the instructions based on your OS. If you are using Ubuntu, I recommend you download and install from the Ubuntu Software Center.
 
-3. Download the Ubuntu OS version 18.
+3. Download the Ubuntu OS version 18:
   [Click here to download](http://old-releases.ubuntu.com/releases/18.04.4/ubuntu-18.04-desktop-amd64.iso)
 4. Create a new VM in your Oracle Virtualbox and install the Ubuntu 18. Follow the instructions.
-5. (Optional) After the installation, clone the newly install VM.
+5. (Optional) After the installation, clone the newly install VM (for backup in case something goes wrong).
 
 ### 2. Install Java, Hadoop, Kafka, Spark
-1. Update your packages
+1. Update your packages:
    <pre><code>sudo apt-get update</code>
-2. Install Git
+2. Install Git:
    <pre><code>sudo apt-get install git -y</code>
-3. Let's clone a repository on the desktop.
+3. Let's clone a repository on the desktop:
    <pre><code>cd ~/Desktop
    sudo git clone https://github.com/dseneh-eit/Hadoop</code></pre>
    
@@ -27,7 +27,7 @@
    <pre><code>cd Hadoop/
    sudo bash hadoop_install.sh</code></pre>
    *Wait for the installation to complete. Sometimes it takes a little longer.*
-5. Test you installation
+5. Test you installation:
    <pre><code>jps</code></pre>
    If you get <code>Jps</code> back, then congratulations!
    If not, source your .bash_profile and .bashrc files respectively:
