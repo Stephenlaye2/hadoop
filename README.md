@@ -53,28 +53,25 @@
 6.  Next, we need to create some directories in HDFS. But before that, let's start our hadoop cluster. If you have yours started already, then skip this step:
     <pre><code>start-all.sh</code></pre>
     If all goes well, you should see the below (the order doesn't matter):
-    <pre><i>
-    NameNode
+    <pre><i>NameNode
     DataNode
     ResourceManager
     Jps
     NodeManager
-    SecondaryNameNode
-    </i></pre>
+    SecondaryNameNode</i></pre>
+
     If you didn't get them all, then please check your configurations.
 7.  Create directories and add permissions in HDFS:
     <pre><code>hadoop fs -mkdir -p /user/hive/warehouse
     hadoop fs -chmod g+w /user/hive/warehouse</code></pre>
 8. cd into hive config folder and create/edit `hive-env.sh`:
-   <pre><code>
-    cd ~/opt/hive/conf 
-    sudo gedit hive-env.sh
+   <pre><code>cd ~/opt/hive/conf
+   sudo gedit hive-env.sh
    </code></pre>
    Paste the below in the hive-env.sh file and save:
-   <pre><code>
-    export HADOOP_HOME=/home/<USER>/hadoop
-    export HADOOP_HEAPSIZE=512
-    export HIVE_CONF_DIR=/home/<USER>/hive/conf</code>
+   <pre><code>export HADOOP_HOME=/home/<USER>/hadoop
+   export HADOOP_HEAPSIZE=512
+   export HIVE_CONF_DIR=/home/<USER>/hive/conf</code>
 9.  While still in `~/hive/conf`, create/edit `hive-site.xml`:
     <pre><code>sudo gedit hive-site.xml</code></pre>
 
@@ -118,13 +115,10 @@
     <pre><code>cd ~/opt/hive
     sudo mv lib/log4j-slf4j-impl-2.6.2.jar lib/log4j-slf4j-impl-2.6.2.jar.bak</code></pre>
 11.  Now we need to create a database schema for Hive to work with using **schematool**:
-        <pre><code>
-        schematool -initSchema -dbType derby – successful </code></pre> 
+        <pre><code>schematool -initSchema -dbType derby</code></pre> 
         
 12. We are now ready to enter the Hive shell and create the database for holding tweets. First, we need to start the Hive Metastore server with the following command:
-        <pre><code>
-        hive –-services metastore
-        </code></pre>
+        <pre><code>hive –-services metastore</code></pre>
     *This should give some output that indicates that the metastore server is running. You'll need to keep this running, so open up a new terminal tab to continue with the next steps.*
 13. Now, leave the hive service running and open a new tab, start the Hive shell with the `hive` command:
     <pre><code>hive</code>
