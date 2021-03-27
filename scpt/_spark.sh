@@ -30,7 +30,7 @@ sudo chmod 777 -R opt/
 # Edit the .bash_profile file
 echo "Adding settings to .bash_profile file"
 
-echo "
+echo '
 #SPARK_HOME
 export SPARK_HOME=~/opt/spark-2.3.2
 export PATH=$PATH:$SPARK_HOME/bin
@@ -39,7 +39,7 @@ export PATH=$PATH:$SPARK_HOME/bin
 export PYTHONPATH=$PYTHONPATH:/usr/lib/python
 export PYSPARK_PYTHON=python3.6
 
-" >> ~/.bash_profile
+' >> ~/.bash_profile
 
 source .bash_profile
 

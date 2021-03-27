@@ -29,14 +29,14 @@ cd
 sudo chmod 777 -R opt/
 
 # Edit the .bash_profile file
-echo "Adding settings to .bash_profile file"
+echo 'Adding settings to .bash_profile file'
 
-echo "
+echo '
 #KAFKA_HOME
 export KAFKA_HOME=~/opt/kafka_2.3.1
 export PATH=$PATH:$KAFKA_HOME/bin
 
-" >> ~/.bash_profile
+' >> ~/.bash_profile
 
 source .bash_profile
 
