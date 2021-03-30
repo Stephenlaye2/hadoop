@@ -48,10 +48,13 @@
     <pre><code>#HIVE_HOME
     export HIVE_HOME=~/opt/hive
     export PATH=$PATH:$HIVE_HOME/bin</code></pre>
-5.  Give it a quick test with:
+5. Source your `.bash_profile` file:
+    <pre><code>source ~/.bash_profile</code></pre>
+   
+7.  Give it a quick test with:
     <pre><code>hive --version</code></pre>
     *You should get the version of hive back*
-6.  Next, we need to create some directories in HDFS. But before that, let's start our hadoop cluster. If you have yours started already, skip this step:
+8.  Next, we need to create some directories in HDFS. But before that, let's start our hadoop cluster. If you have yours started already, skip this step:
     <pre><code>start-all.sh</code></pre>
     To verfiy if your cluster is running, run the following command:
     <pre><code>jps</code></pre>
@@ -65,18 +68,17 @@
 
     If you didn't get them all, then please check your configurations. 
     <br />
-7.  Create directories and add permissions in HDFS:
+9.  Create directories and add permissions in HDFS:
     <pre><code>hadoop fs -mkdir -p /user/hive/warehouse
     hadoop fs -chmod g+w /user/hive/warehouse</code></pre>
-8. cd into hive config folder and create/edit `hive-env.sh`:
-   <pre><code>cd ~/opt/hive/conf
-   sudo gedit hive-env.sh
-   </code></pre>
-   Paste the below in the hive-env.sh file and save:
-   <pre><code>export HADOOP_HOME=~/opt/hadoop-2.7.3
-   export HADOOP_HEAPSIZE=512
-   export HIVE_CONF_DIR=~/opt/hive/conf</code>
-9.  While still in `~/hive/conf`, create/edit `hive-site.xml`:
+10. cd into hive config folder and create/edit `hive-env.sh`:
+    <pre><code>cd ~/opt/hive/conf
+    sudo gedit hive-env.sh</code></pre>
+11. In the `hive-env.sh` file, find, uncommet and replace the values of the follow variables and to look like:
+    <pre><code>export HADOOP_HOME=~/opt/hadoop-2.7.3
+    export HADOOP_HEAPSIZE=512
+    export HIVE_CONF_DIR=~/opt/hive/conf</code></pre>
+11. While still in `~/hive/conf`, create/edit `hive-site.xml`:
     <pre><code>sudo gedit hive-site.xml</code></pre>
 
     Paste the below and save:
@@ -115,18 +117,18 @@
         </property>
     </configuration>
     ```
-10. (optional) Since Hive and Kafka are running on the same system, you'll get a warning message about some SLF4J logging file. From your Hive home you can just rename the file:
+12. (optional) Since Hive and Kafka are running on the same system, you'll get a warning message about some SLF4J logging file. From your Hive home you can just rename the file:
     <pre><code>cd ~/opt/hive
     sudo mv lib/log4j-slf4j-impl-2.6.2.jar lib/log4j-slf4j-impl-2.6.2.jar.bak</code></pre>
-11.  Now we need to create a database schema for Hive to work with using **schematool**:
+13.  Now we need to create a database schema for Hive to work with using **schematool**:
         <pre><code>schematool -initSchema -dbType derby</code></pre> 
         
-12. We are now ready to enter the Hive shell and create the database for holding tweets. First, we need to start the Hive Metastore server with the following command:
+14. We are now ready to enter the Hive shell and create the database for holding tweets. First, we need to start the Hive Metastore server with the following command:
         <pre><code>hive –-services metastore</code></pre>
     *This should give some output that indicates that the metastore server is running. You'll need to keep this running, so open up a new terminal tab to continue with the next steps.*
-13. Now, leave the hive service running and open a new tab, start the Hive shell with the `hive` command:
+15. Now, leave the hive service running and open a new tab, start the Hive shell with the `hive` command:
     <pre><code>hive</code>
-14. If you are able to get to this point: **CONGRATULATIONS!**
+16. If you are able to get to this point: **CONGRATULATIONS!**
 ---
 ### 4. Install MySQL
 1. First, let's update our packages:
@@ -152,16 +154,20 @@
     <pre><code> #HBASE_HOME
     export HBASE_HOME=~/opt/hbase-1.1.4
     export PATH=$PATH:$HBASE_HOME/bin</code></pre>
-4. cd into the `opt` folder and edit the `hbase-env.sh` file:
+4. Source your `.bash_profile` file:
+    <pre><code>source ~/.bash_profile</code></pre>
+   
+5. cd into the `opt` folder and edit the `hbase-env.sh` file:
     <pre><code> cd ~/opt/hbase-1.1.4/conf/
     sudo gedit hbase-env.sh</code></pre>
-5. Paste the following in the `hbase-env.sh` file and save:
-    <pre><code> export JAVA_HOME=~/opt/jdk1.8.0_221
-    export HBASE_REGIONSERVERS=~/opt/hbase-1.1.4/conf/regionservers
+6. In the `hbase-env.sh` file find the `export HBASE_REGIONSERVERS` variable and uncomment it, replace it's value to:
+    <pre><code> export JAVA_HOME=~/opt/jdk1.8.0_221</code></pre>
+    Also find and uncommet the following:
+    <pre><code> export HBASE_REGIONSERVERS=${HBASE_HOME}/conf/regionservers
     export HBASE_MANAGES_ZK=true</code></pre>
-6. While still in the hbase conf directory, also open and edit the `hbase-site.xml` file:
+7. While still in the hbase conf directory, also open and edit the `hbase-site.xml` file:
     <pre><code>sudo gedit hbase-site.xml</code></pre>
-7. Paste the below:
+8. Paste the below:
    ```xml
     <property>
         <name>hbase.rootdir</name>
@@ -187,12 +193,12 @@
         <name>hbase.zookeeper.property.dataDir</name>
         <value>~/opt/hbase-1.1.4/zookeeper</value>
     </property>
-8.  Start the Hbase daemons:
+9.  Start the Hbase daemons:
     <pre><code>start-hbase.sh</code></pre>
     <pre><i>HQuorumPeer
     HMaster
     HRegionServer</i></pre>
-    If you didn't get them all, then please check your configurations.
+    If you run `jps` command and didn't get them all, then please check your configurations.
     <br />
-9. To login into HBase shell:
+10. To login into HBase shell:
     <pre><code>hbase shell</code></pre>
