@@ -13,7 +13,7 @@
   [Click here to download](http://old-releases.ubuntu.com/releases/18.04.4/ubuntu-18.04-desktop-amd64.iso)
 4. Create a new VM in your Oracle Virtualbox and install the Ubuntu 18. Follow the instructions.
 5. (Optional) After the installation, clone the newly install VM (for backup in case something goes wrong).
-
+---
 ### 2. Install Java, Hadoop, Kafka, Spark
 1. Update your packages:
    <pre><code>sudo apt-get update</code>
@@ -33,7 +33,7 @@
    If not, source your .bash_profile and .bashrc files respectively:
    <pre><code>source ~/.bash_profile
    source ~/.bashrc</code></pre>
-
+---
 ### 3. Install Hive
 1. In your terminal, paste the below code:
    <pre><code>cd ~/opt
@@ -127,7 +127,7 @@
 13. Now, leave the hive service running and open a new tab, start the Hive shell with the `hive` command:
     <pre><code>hive</code>
 14. If you are able to get to this point: **CONGRATULATIONS!**
-
+---
 ### 4. Install MySQL
 1. First, let's update our packages:
     <pre><code>sudo apt-get update</code></pre>
@@ -141,26 +141,22 @@
     <pre><code>ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';</code></pre>
 5. Install the MySQL connector:
     <pre><code>sudo apt-get install libmysql-java</code></pre>
-
+---
 ### 4. Install HBase
 1. Let's cd into our `opt` folder and download hbase:
-    <pre><code>
-    cd ~/opt
+    <pre><code>cd ~/opt
     sudo wget http://archive.apache.org/dist/hbase/1.1.4/hbase-1.1.4-bin.tar.gz</code></pre>
 2. Unzip the `.tar.gz` file:
     <pre><code>tar -xvf hbase-1.1.4-bin.tar.gz</code></pre>
 3. In your **.bash_profile** file, paste the following:
-    <pre><code>
-    #HBASE_HOME
+    <pre><code>#HBASE_HOME
     export HBASE_HOME=~/opt/hbase-1.1.4
     export PATH=$PATH:$HBASE_HOME/bin</code></pre>
 4. cd into the `opt` folder and edit the `hbase-env.sh` file:
-    <pre><code>
-    cd ~/opt/hbase-1.1.4/conf/
+    <pre><code>cd ~/opt/hbase-1.1.4/conf/
     sudo gedit hbase-env.sh</code></pre>
 5. Paste the following in the `hbase-env.sh` file and save:
-    <pre><code>
-    export JAVA_HOME=~/opt/jdk1.8.0_221
+    <pre><code>export JAVA_HOME=~/opt/jdk1.8.0_221
     export HBASE_REGIONSERVERS=~/opt/hbase-1.1.4/conf/regionservers
     export HBASE_MANAGES_ZK=true</code></pre>
 6. While still in the hbase conf directory, also open and edit the `hbase-site.xml` file:
@@ -193,11 +189,9 @@
     </property>
 8.  Start the Hbase daemons:
     <pre><code>start-hbase.sh</code></pre>
-    <pre><i>
-    HQuorumPeer
+    <pre><i>HQuorumPeer
     HMaster
-    HRegionServer</i>
-    </pre>
+    HRegionServer</i></pre>
     If you didn't get them all, then please check your configurations.
     <br />
 9. To login into HBase shell:
