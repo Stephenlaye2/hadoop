@@ -21,7 +21,7 @@
    <pre><code>sudo apt-get install git -y</code>
 3. Let's clone a repository on the desktop:
    <pre><code>cd ~/Desktop
-   sudo git clone https://github.com/dseneh-eit/Hadoop</code></pre>
+   sudo git clone https://github.com/dseneh-eit/hadoop</code></pre>
    
 4. cd into the cloned repository and execute the bash command
    <pre><code>cd Hadoop/
@@ -157,17 +157,17 @@
 4. Source your `.bash_profile` file:
     <pre><code>source ~/.bash_profile</code></pre>
    
-5. cd into the `opt` folder and edit the `hbase-env.sh` file:
+5. cd into the hbase conf folder and edit the `hbase-env.sh` file:
     <pre><code> cd ~/opt/hbase-1.1.4/conf/
     sudo gedit hbase-env.sh</code></pre>
-6. In the `hbase-env.sh` file find the `export HBASE_REGIONSERVERS` variable and uncomment it, replace it's value to:
+6. In the `hbase-env.sh` file, find the `export HBASE_REGIONSERVERS` variable and uncomment it, replace it's value to look like this:
     <pre><code> export JAVA_HOME=~/opt/jdk1.8.0_221</code></pre>
-    Also find and uncommet the following:
+    Also find and uncommet the following, then save and colse the file:
     <pre><code> export HBASE_REGIONSERVERS=${HBASE_HOME}/conf/regionservers
     export HBASE_MANAGES_ZK=true</code></pre>
 7. While still in the hbase conf directory, also open and edit the `hbase-site.xml` file:
     <pre><code>sudo gedit hbase-site.xml</code></pre>
-8. Paste the below:
+8. Paste the below between the ```<configuration>``` tags:
    ```xml
     <property>
         <name>hbase.rootdir</name>
@@ -195,10 +195,10 @@
     </property>
 9.  Start the Hbase daemons:
     <pre><code>start-hbase.sh</code></pre>
+    To ensure everything is working, run the `jps` command and you should be able to get the following. If you didn't get them all, then please check your configurations:
     <pre><i>HQuorumPeer
     HMaster
     HRegionServer</i></pre>
-    If you run `jps` command and didn't get them all, then please check your configurations.
     <br />
 10. To login into HBase shell:
     <pre><code>hbase shell</code></pre>
