@@ -46,7 +46,7 @@
    sudo gedit .bash_profile</code>
 4.  In your **.bash_profile** file, paste the following:
     <pre><code>#HIVE_HOME
-    export HIVE_HOME=/home/<USER>/hive
+    export HIVE_HOME=~/opt/hive
     export PATH=$PATH:$HIVE_HOME/bin</code></pre>
 5.  Give it a quick test with:
     <pre><code>hive --version</code></pre>
@@ -63,7 +63,8 @@
     NodeManager
     SecondaryNameNode</i></pre>
 
-    If you didn't get them all, then please check your configurations.
+    If you didn't get them all, then please check your configurations. 
+    <br />
 7.  Create directories and add permissions in HDFS:
     <pre><code>hadoop fs -mkdir -p /user/hive/warehouse
     hadoop fs -chmod g+w /user/hive/warehouse</code></pre>
@@ -125,4 +126,79 @@
     *This should give some output that indicates that the metastore server is running. You'll need to keep this running, so open up a new terminal tab to continue with the next steps.*
 13. Now, leave the hive service running and open a new tab, start the Hive shell with the `hive` command:
     <pre><code>hive</code>
-14. If you were able to get to this point: **CONGRATULATIONS!**
+14. If you are able to get to this point: **CONGRATULATIONS!**
+
+### 4. Install MySQL
+1. First, let's update our packages:
+    <pre><code>sudo apt-get update</code></pre>
+2. Next, install MySQL server:
+    <pre><code>sudo apt-get install mysql-server</code></pre>
+    Enter the password as root when it prompts to enter a password
+3. Login to mysql and check the available default databases:
+    <pre><code>sudo mysql -u root -p [YOUR PASSWORD] </code></pre>
+    <pre><code>show databases;</code></pre>
+4. (Optional) Set the root user's password to 'root':
+    <pre><code>ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';</code></pre>
+5. Install the MySQL connector:
+    <pre><code>sudo apt-get install libmysql-java</code></pre>
+
+### 4. Install HBase
+1. Let's cd into our `opt` folder and download hbase:
+    <pre><code>
+    cd ~/opt
+    sudo wget http://archive.apache.org/dist/hbase/1.1.4/hbase-1.1.4-bin.tar.gz</code></pre>
+2. Unzip the `.tar.gz` file:
+    <pre><code>tar -xvf hbase-1.1.4-bin.tar.gz</code></pre>
+3. In your **.bash_profile** file, paste the following:
+    <pre><code>
+    #HBASE_HOME
+    export HBASE_HOME=~/opt/hbase-1.1.4
+    export PATH=$PATH:$HBASE_HOME/bin</code></pre>
+4. cd into the `opt` folder and edit the `hbase-env.sh` file:
+    <pre><code>
+    cd ~/opt/hbase-1.1.4/conf/
+    sudo gedit hbase-env.sh</code></pre>
+5. Paste the following in the `hbase-env.sh` file and save:
+    <pre><code>
+    export JAVA_HOME=~/opt/jdk1.8.0_221
+    export HBASE_REGIONSERVERS=~/opt/hbase-1.1.4/conf/regionservers
+    export HBASE_MANAGES_ZK=true</code></pre>
+6. While still in the hbase conf directory, also open and edit the `hbase-site.xml` file:
+    <pre><code>sudo gedit hbase-site.xml</code></pre>
+7. Paste the below:
+   ```xml
+    <property>
+        <name>hbase.rootdir</name>
+        <value>hdfs://localhost:9000/hbase</value>
+    </property>
+    <property>
+        <name>hbase.cluster.distributed</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hbase.zookeeper.quorum</name>
+        <value>localhost</value>
+    </property>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+    <property>
+        <name>hbase.zookeeper.property.clientPort</name>
+        <value>2181</value>
+    </property>
+    <property>
+        <name>hbase.zookeeper.property.dataDir</name>
+        <value>~/opt/hbase-1.1.4/zookeeper</value>
+    </property>
+8.  Start the Hbase daemons:
+    <pre><code>start-hbase.sh</code></pre>
+    <pre><i>
+    HQuorumPeer
+    HMaster
+    HRegionServer</i>
+    </pre>
+    If you didn't get them all, then please check your configurations.
+    <br />
+9. To login into HBase shell:
+    <pre><code>hbase shell</code></pre>
