@@ -73,9 +73,9 @@
    sudo gedit hive-env.sh
    </code></pre>
    Paste the below in the hive-env.sh file and save:
-   <pre><code>export HADOOP_HOME=/home/<USER>/hadoop
+   <pre><code>export HADOOP_HOME=~/opt/hadoop-2.7.3
    export HADOOP_HEAPSIZE=512
-   export HIVE_CONF_DIR=/home/<USER>/hive/conf</code>
+   export HIVE_CONF_DIR=~/opt/hive/conf</code>
 9.  While still in `~/hive/conf`, create/edit `hive-site.xml`:
     <pre><code>sudo gedit hive-site.xml</code></pre>
 
@@ -144,19 +144,19 @@
 ---
 ### 4. Install HBase
 1. Let's cd into our `opt` folder and download hbase:
-    <pre><code>cd ~/opt
+    <pre><code> cd ~/opt
     sudo wget http://archive.apache.org/dist/hbase/1.1.4/hbase-1.1.4-bin.tar.gz</code></pre>
 2. Unzip the `.tar.gz` file:
     <pre><code>tar -xvf hbase-1.1.4-bin.tar.gz</code></pre>
 3. In your **.bash_profile** file, paste the following:
-    <pre><code>#HBASE_HOME
+    <pre><code> #HBASE_HOME
     export HBASE_HOME=~/opt/hbase-1.1.4
     export PATH=$PATH:$HBASE_HOME/bin</code></pre>
 4. cd into the `opt` folder and edit the `hbase-env.sh` file:
-    <pre><code>cd ~/opt/hbase-1.1.4/conf/
+    <pre><code> cd ~/opt/hbase-1.1.4/conf/
     sudo gedit hbase-env.sh</code></pre>
 5. Paste the following in the `hbase-env.sh` file and save:
-    <pre><code>export JAVA_HOME=~/opt/jdk1.8.0_221
+    <pre><code> export JAVA_HOME=~/opt/jdk1.8.0_221
     export HBASE_REGIONSERVERS=~/opt/hbase-1.1.4/conf/regionservers
     export HBASE_MANAGES_ZK=true</code></pre>
 6. While still in the hbase conf directory, also open and edit the `hbase-site.xml` file:
