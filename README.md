@@ -202,3 +202,34 @@
     <br />
 10. To login into HBase shell:
     <pre><code>hbase shell</code></pre>
+
+### 4. Install Airflow
+1. Let's first install `pip` for linux:
+    <pre><code>sudo apt-get install python3-pip python-dev</code></pre>
+2. Verify the installation:
+    <pre><code>pip3  --version</code></pre>
+3. Let's a directory named `airflow` and inside this directory, let's also create a `dags` directory. This where we’ll store our python dag files:
+    <pre><code> mkdir ~/airflow
+    cd ~/airflow
+    mkdir dags</code></pre>
+
+4. (Optional) uninstall any old apache-airflow installations using pip:
+    <pre><code>sudo pip3 uninstall apache-airflow</code></pre>
+5. Install apache-airflow using pip:
+    <pre><code>sudo pip3 install apache-airflow</code></pre>
+6. Initialize apache-airflow database (default is sqlite):
+    <pre><code>airflow db init</code></pre>
+7. Create admin user and password:
+    <pre><code> airflow users create \
+	--username admin \
+	--firstname [YOUR_FIRST_NAME] \ 
+	--lastname [yOUR_LAST_NAME] \
+	--role Admin \
+	--email spiderman@superhero.org</code></pre>
+8. Open another terminal, start the web server and let it run:
+    <pre><code>airflow web server --port 8080</code></pre>
+9. Open another terminal, start the scheduler and let it run:
+    <pre><code>airflow scheduler</code></pre>
+10. Visit `localhost:8080` in the browser to access the GUI
+11. Enter your username and password (from step 8)
+
