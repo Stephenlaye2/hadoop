@@ -202,7 +202,7 @@
     <br />
 10. To login into HBase shell:
     <pre><code>hbase shell</code></pre>
-
+---
 ### 4. Install Airflow
 1. Let's first install `pip` for linux:
     <pre><code>sudo apt-get install python3-pip python-dev</code></pre>
