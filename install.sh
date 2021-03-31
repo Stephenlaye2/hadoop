@@ -25,4 +25,4 @@ cd
 # Source .bach_profile in .bachrc
 echo 'source ~/.bash_profile' >> .bashrc
 source ~/.bash_profile
-source ~/.barchrc
+source ~/.bashrc

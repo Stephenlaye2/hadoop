@@ -38,7 +38,7 @@ echo '
 JAVA_HOME=~/opt/jdk1.8.0_221
 export PATH=$PATH:$JAVA_HOME/bin' > .bash_profile
 
-source .bash_profile
+source ~/.bash_profile
 
 echo '
 

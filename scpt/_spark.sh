@@ -41,7 +41,7 @@ export PYSPARK_PYTHON=python3.6
 
 ' >> ~/.bash_profile
 
-source .bash_profile
+source ~/.bash_profile
 
 echo '
 SPARK Installation Successful !!!'
