@@ -131,7 +131,7 @@ sudo apt-get install openssh-server
 # Create/Gendrate the SSH Key
 sudo ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 sudo cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-sudo chmod 0600 ~/.ssh/authorized_keys
+sudo chmod -R 750 ~/.ssh/authorized_keys
 
 # Format hdfs namenode
 hdfs namenode -format
