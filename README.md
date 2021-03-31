@@ -203,12 +203,12 @@
 10. To login into HBase shell:
     <pre><code>hbase shell</code></pre>
 ---
-### 4. Install Airflow
+### 5. Install Airflow
 1. Let's first install `pip` for linux:
     <pre><code>sudo apt-get install python3-pip python-dev</code></pre>
 2. Verify the installation:
     <pre><code>pip3  --version</code></pre>
-3. Let's a directory named `airflow` and inside this directory, let's also create a `dags` directory. This where we’ll store our python dag files:
+3. Let's an `airflow` directory, and inside this directory, let's also create a `dags` directory. This where we’ll store our python dag files:
     <pre><code> mkdir ~/airflow
     cd ~/airflow
     mkdir dags</code></pre>
