@@ -208,7 +208,7 @@
     <pre><code>sudo apt-get install python3-pip python-dev</code></pre>
 2. Verify the installation:
     <pre><code>pip3  --version</code></pre>
-3. Let's an `airflow` directory, and inside this directory, let's also create a `dags` directory. This where we’ll store our python dag files:
+3. Let's create an `airflow` directory, and inside this directory, let's also create a `dags` directory. This where we’ll store our python dag files:
     <pre><code> mkdir ~/airflow
     cd ~/airflow
     mkdir dags</code></pre>
