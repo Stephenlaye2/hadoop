@@ -24,12 +24,12 @@ sudo rm hadoop-2.7.3.tar.gz
 cd
 sudo chmod 777 -R opt/
 
-cd hadoop-2.7.3
-sudo mkdir hdfs
-cd hdfs
-sudo mkdir datanode
-sudo mkdir namenode
-cd
+# cd hadoop-2.7.3
+# sudo mkdir hdfs
+# cd hdfs
+# sudo mkdir datanode
+# sudo mkdir namenode
+# cd
 
 
 # Edit the .bash_profile file
@@ -84,13 +84,13 @@ echo '
   </property>
 
   <property>
-    <name>dfs.name.dir</name>
-    <value>file://~/opt/hadoop-2.7.3/hdfs/namenode</value>
+    <name>dfs.namenode.name.dir</name>
+    <value>~/opt/hadoop-2.7.3/hdfs/namenode</value>
   </property>
 
   <property>
-    <name>dfs.name.dir</name>
-    <value>file://~/opt/hadoop-2.7.3/hdfs/datanode</value>
+    <name>dfs.datanode.data.dir</name>
+    <value>~/opt/hadoop-2.7.3/hdfs/datanode</value>
   </property>
 </configuration>' >> hdfs-site.xml
 
@@ -129,7 +129,7 @@ echo '
 sudo apt-get install openssh-server
 
 # Create/Gendrate the SSH Key
-sudo ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+ssh-keygen
 sudo cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 sudo chmod -R 750 ~/.ssh/authorized_keys
 
@@ -140,4 +140,6 @@ hdfs namenode -format
 source ~/.bash_profile
 
 echo '
-Hadoop Installation Successful !!!'
+Hadoop Installation Successful.
+
+'
