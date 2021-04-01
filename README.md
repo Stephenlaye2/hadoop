@@ -47,8 +47,7 @@
    <pre><code>tar -xvf apache-hive-2.3.5-bin.tar.gz
    sudo mv apache-hive-2.3.5-bin hive</code></pre>
 3. Let's open and edit the **.bash_profile** file:
-   <pre><code>cd ~ 
-   sudo gedit .bash_profile</code>
+   <pre><code>sudo gedit ~/.bash_profile</code>
 4.  In your **.bash_profile** file, paste the following:
     <pre><code>#HIVE_HOME
     export HIVE_HOME=~/opt/hive
@@ -56,10 +55,10 @@
 5. Source your `.bash_profile` file:
     <pre><code>source ~/.bash_profile</code></pre>
    
-7.  Give it a quick test with:
+6.  Give it a quick test with:
     <pre><code>hive --version</code></pre>
     *You should get the version of hive back*
-8.  Next, we need to create some directories in HDFS. But before that, let's start our hadoop cluster. If you have yours started already, skip this step:
+7.  Next, we need to create some directories in HDFS. But before that, let's start our hadoop cluster. If you have yours started already, skip this step:
     <pre><code>start-all.sh</code></pre>
     To verfiy if your cluster is running, run the following command:
     <pre><code>jps</code></pre>
@@ -73,13 +72,13 @@
 
     If you didn't get them all, then please check your configurations. 
     <br />
-9.  Create directories and add permissions in HDFS:
+8.  Create directories and add permissions in HDFS:
     <pre><code>hadoop fs -mkdir -p /user/hive/warehouse
     hadoop fs -chmod g+w /user/hive/warehouse</code></pre>
-10. cd into hive config folder and create/edit `hive-env.sh`:
+9.  cd into hive config folder and create/edit `hive-env.sh`:
     <pre><code>cd ~/opt/hive/conf
     sudo gedit hive-env.sh</code></pre>
-11. In the `hive-env.sh` file, find, uncommet and replace the values of the follow variables and to look like:
+10. In the `hive-env.sh` file, find, uncommet and replace the values of the follow variables and to look like:
     <pre><code>export HADOOP_HOME=~/opt/hadoop-2.7.3
     export HADOOP_HEAPSIZE=512
     export HIVE_CONF_DIR=~/opt/hive/conf</code></pre>
@@ -129,7 +128,7 @@
         <pre><code>schematool -initSchema -dbType derby</code></pre> 
         
 14. We are now ready to enter the Hive shell and create the database for holding tweets. First, we need to start the Hive Metastore server with the following command:
-        <pre><code>hive –-services metastore</code></pre>
+        <pre><code>hive --service metastore</code></pre>
     *This should give some output that indicates that the metastore server is running. You'll need to keep this running, so open up a new terminal tab to continue with the next steps.*
 15. Now, leave the hive service running and open a new tab, start the Hive shell with the `hive` command:
     <pre><code>hive</code>
