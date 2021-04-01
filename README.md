@@ -45,7 +45,7 @@
    sudo wget http://archive.apache.org/dist/hive/hive-2.3.5/apache-hive-2.3.5-bin.tar.gz</code></pre>
 2. Unzip the downloaded file and rename the folder:
    <pre><code>tar -xvf apache-hive-2.3.5-bin.tar.gz
-   sudo mv apache-hive-2.3.5-bin.tar.gz hive</code></pre>
+   sudo mv apache-hive-2.3.5-bin hive</code></pre>
 3. Let's open and edit the **.bash_profile** file:
    <pre><code>cd ~ 
    sudo gedit .bash_profile</code>
